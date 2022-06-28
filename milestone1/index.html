@@ -18,24 +18,57 @@
             <div class="flex-container">
                 <div class="container">
                     <div class="row">
+                        <!-- left-col -->
                         <div class="left-col">
+                            <!-- user-nav -->
                             <div class="user-nav">
-
+                                <div class="flex_user_nav">
+                                    <div class="left-user-nav">
+                                        <img src="img/avatar_io.jpg" alt="avatar-user">
+                                        <div>Nome Utente</div>
+                                    </div>
+    
+                                    <div class="right-nav-icon-user"> 
+                                        <i class="fa-solid fa-circle-notch"></i>
+                                        <i class="fa-solid fa-message"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </div>
+                                </div>
                             </div>
-
+                            <!-- notification-area -->
                             <div class="notification-area">
+                                <div class="bell-icon">
+                                    <span>
+                                        <i class="fa-solid fa-bell-slash"></i>
+                                    </span>
+                                </div>
 
-
+                                <div class="text-bell">
+                                    <div>Ricevi notifiche di nuovi messaggi</div>
+                                    <div>
+                                        <a href="#">Attiva notifiche desktop</a>
+                                    </div>
+                                </div>
                             </div>
-
+                            <!-- input-search-new-chat -->
                             <div class="input-search-new-chat">
-                                
+                               <div class="search_new_chat-area">
+                                    <span class="search-icon">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <input class="input-left-col" type="text" placeholder="Cerca o inizia una nuova chat">
+                               </div>
                             </div>
-
-                            <ul>
-                                <li></li>
+                            <!-- contacts -->
+                            <ul class="contacts-list"> 
+                                <li v-for="(contact, index) in contacts" class="avatar-item" :class="{ 'selected' : index === 2 }">
+                                    <img :src="'img/' + 'avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                    <span>{{ contact.name }}</span>
+                                </li>
                             </ul>
                         </div>
+
+                        <!-- right-col -->
                         <div class="right-col">
                             <div class="interlocutor-nav">
 

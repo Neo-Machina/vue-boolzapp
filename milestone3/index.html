@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Boolzapp</title>
 
-
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
@@ -121,7 +121,7 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </span>
 
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="newMessage" @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio">
 
                         <span class="microphone-icon">
                             <i class="fa-solid fa-microphone"></i>

@@ -9,6 +9,7 @@ var app = new Vue(
         el: '#root',
         data: {
             contactSelected: 0,
+            newMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -95,6 +96,18 @@ var app = new Vue(
                 },
             ]
             
+        },
+        methods: {
+            addNewMessage() {
+                const newMessageObject = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: this.newMessage,
+                    status: 'sent'
+                }
+
+                this.contacts[this.contactSelected].messages.push(newMessageObject);
+                this.newMessage = '';
+            }
         }
     }
 )

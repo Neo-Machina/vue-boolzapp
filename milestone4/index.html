@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolzapp</title>
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="root" class="flex-container">
+        <div class="container">
+            <div class="row">
+                <!-- LEFT-COL -->
+                <div class="left-col">
+                    <!-- user-nav -->
+                    <div class="user-nav">
+                        <div class="flex_user_nav">
+                            <div class="left-user-nav">
+                                <img src="img/avatar_io.jpg" alt="avatar-user">
+                                <div>Nome Utente</div>
+                            </div>
+
+                            <ul class="right-nav-icon-user"> 
+                                <li>
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-message"></i>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- notification-area -->
+                    <div class="notification-area">
+                        <div class="bell-icon">
+                            <span>
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </span>
+                        </div>
+
+                        <div class="text-bell">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <div>
+                                <a href="#">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- input-search-new-chat -->
+                    <div class="input-search-new-chat">
+                        <div class="search_new_chat-area">
+                            <label for="contacts_search" class="search-icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </label>
+                            <input class="input-left-col" type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
+                    <!-- contacts -->
+                    <ul class="contacts-list"> 
+                        <li v-for="(contact, index) in contacts" @click="contactSelected = index" class="avatar-item" :class="{ 'selected' : index === contactSelected }">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <span>{{ contact.name }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT-COL -->
+                <div class="right-col">
+                    <!-- interlocutor-nav -->
+                    <div class="interlocutor-nav">
+                        <div class="flex_interlocutor_nav">
+                            <div class="left-interlocutor-nav">
+                                <img :src="'img/avatar' + contacts[contactSelected].avatar + '.jpg'" :alt="contactSelected.name">
+
+                                <div class="interlocutor-info">
+                                    <div>{{ contacts[contactSelected].name }}</div>
+                                    <div>Ultimo accesso oggi alle</div>
+                                </div>
+                            </div>
+
+                            <ul class="right-nav-icon-interlocutor"> 
+                                <li>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- main-chat-area -->
+                    <div class="main-chat-area">
+                        <div class="small_container">
+                            <div v-for="(singleMessage, index) in contacts[contactSelected].messages" class="flex-message" :class="{ 'flex-user-message' : singleMessage.status === 'sent' }">
+                                <div class="message" :class="{ 'sent' : singleMessage.status === 'sent', 'received' : singleMessage.status === 'received' }">
+                                    <div class="message-text">
+                                        <div>
+                                            {{ singleMessage.text }}
+                                        </div>
+                                        <div>
+                                            {{ singleMessage.date }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                             
+                        </div>
+                    </div>
+                    <!-- input-message-area -->
+                    <div class="input-message-area">
+                        <span class="smile-icon">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </span>
+
+                        <input v-model="newMessage" @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio">
+
+                        <span class="microphone-icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

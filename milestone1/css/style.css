@@ -128,7 +128,7 @@ ul {
     background-color: white;
 }
 .search_new_chat-area .search-icon {
-    margin: 0 35px 0 20px;
+    margin: 0 25px 0 20px;
     color: #b6b9bc;
     font-size: 13px;
 }
@@ -136,6 +136,7 @@ ul {
     width: 300px;
     font-size: 12px;
     border: none;
+    height: 20px;
 }   
 /* contacts */
 .contacts-list {

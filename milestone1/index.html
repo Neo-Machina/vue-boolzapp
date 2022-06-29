@@ -65,7 +65,7 @@
                     <!-- contacts -->
                     <ul class="contacts-list"> 
                         <li v-for="(contact, index) in contacts" class="avatar-item" :class="{ 'selected' : index === 2 }">
-                            <img :src="'img/' + 'avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <span>{{ contact.name }}</span>
                         </li>
                     </ul>

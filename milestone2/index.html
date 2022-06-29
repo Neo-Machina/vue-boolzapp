@@ -77,10 +77,10 @@
                     <div class="interlocutor-nav">
                         <div class="flex_interlocutor_nav">
                             <div class="left-interlocutor-nav">
-                                <img src="img/avatar_3.jpg" alt="Samuele">
+                                <img :src="'img/avatar' + contacts[contactSelected].avatar + '.jpg'" :alt="contactSelected.name">
 
                                 <div class="interlocutor-info">
-                                    <div>Samuele</div>
+                                    <div>{{ contacts[contactSelected].name }}</div>
                                     <div>Ultimo accesso oggi alle</div>
                                 </div>
                             </div>

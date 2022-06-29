@@ -59,12 +59,12 @@
                             <label for="contacts_search" class="search-icon">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </label>
-                            <input class="input-left-col" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="contactFilter" @keyup="filterElementsByText()" class="input-left-col" type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                     <!-- contacts -->
                     <ul class="contacts-list"> 
-                        <li v-for="(contact, index) in contacts" @click="contactSelected = index" class="avatar-item" :class="{ 'selected' : index === contactSelected }">
+                        <li v-for="(contact, index) in contacts" @click="contactSelected = index" class="avatar-item" :class="{ 'selected' : index === contactSelected }" v-if="contact.visible">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                             <span>{{ contact.name }}</span>
                         </li>

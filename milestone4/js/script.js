@@ -9,6 +9,7 @@ var app = new Vue(
         data: {
             contactSelected: 0,
             newMessage: '',
+            contactFilter: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -120,6 +121,21 @@ var app = new Vue(
                 };
 
                 this.contacts[this.contactSelected].messages.push(newMessageObject);
+            },
+            filterElementsByText() {
+                const contactInputLower = this.contactFilter.toLowerCase();
+
+                // Verifico se la stringa datami dall'utente
+                // è contenuta nella proprietà name di ogni contacts
+                this.contacts.forEach((element) => {
+                    const elementTextLower = element.name.toLowerCase();
+
+                    if(elementTextLower.includes(contactInputLower)) {
+                        element.visible = true;
+                    } else {
+                        element.visible = false;
+                    }
+                });
             }
         }
     }

@@ -228,19 +228,19 @@ ul {
     margin-bottom: 10px;
     display: flex;
 }
-.message-properties {
+.message {
     max-width: 60%;
     border-radius: 5px;
     min-width: 40%;
     padding: 15px 5px 4px 15px;
 }
-.interlocutor-message {
+.message.received {
     background-color: white;
 }
 .flex-user-message {
     justify-content: flex-end;
 }
-.user-message {
+.message.sent {
     background-color: #d5f9ba;
 }
 .message-text div:first-child {

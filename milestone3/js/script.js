@@ -103,10 +103,24 @@ var app = new Vue(
                     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: this.newMessage,
                     status: 'sent'
-                }
+                };
+
+                if(this.newMessage.length > 0) {
+                    this.contacts[this.contactSelected].messages.push(newMessageObject);
+                };
+
+                this.newMessage = '';
+
+                const timeOutAnswer = setTimeout(this.receiveNewMessage, 1000);
+            },
+            receiveNewMessage() {
+                const newMessageObject = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: 'ok',
+                    status: 'received'
+                };
 
                 this.contacts[this.contactSelected].messages.push(newMessageObject);
-                this.newMessage = '';
             }
         }
     }

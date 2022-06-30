@@ -243,10 +243,25 @@ ul {
 .message.sent {
     background-color: #d5f9ba;
 }
-.message-text div:first-child {
+.flex-message-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.message-text .flex-message-text div:first-child {
     font-size: 13px;
 }
-.message-text div:last-child {
+.message-text .flex-message-text div:last-child {
+    font-size: 13px; 
+    margin-left: 20px;
+    display: none;
+    color: #b8bbbe;
+}
+/* dropdown-hover */
+.message:hover .flex-message-text div:last-child {
+    display: block;
+}
+.message-text > div:last-child {
     font-size: 10px;
     color: #b8bbbe;
     text-align: right;

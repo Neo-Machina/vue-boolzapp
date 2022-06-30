@@ -104,9 +104,15 @@
                             <div v-for="(singleMessage, index) in contacts[contactSelected].messages" class="flex-message" :class="{ 'flex-user-message' : singleMessage.status === 'sent' }">
                                 <div class="message" :class="{ 'sent' : singleMessage.status === 'sent', 'received' : singleMessage.status === 'received' }">
                                     <div class="message-text">
-                                        <div>
-                                            {{ singleMessage.text }}
+                                        <div class="flex-message-text">
+                                            <div>
+                                                {{ singleMessage.text }}
+                                            </div>
+                                            <div>
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </div>
                                         </div>
+                                        
                                         <div>
                                             {{ singleMessage.date }}
                                         </div>

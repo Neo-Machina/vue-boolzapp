@@ -146,6 +146,7 @@ ul {
 .left-col .avatar-item {
     padding: 8px 15px;
     background-color: white;
+    cursor: pointer;
 }
 .left-col .avatar-item:not(:last-child) {
     border-bottom: 1px solid #f5f5f5;
@@ -155,9 +156,26 @@ ul {
     border-radius: 50%;
     margin-right: 15px;
 }
-.avatar-item span {
-    vertical-align: top;
+.contacts-list .flex-contact {
+    display: flex;
+    justify-content: space-between;
+}
+.contacts-list .contact_info {
+    display: flex;
+}
+.contacts-list .contact_info .contact_name{
     font-size: 14px;
+}
+.contacts-list .contact_info .last_message {
+    width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.contacts-list .contact_info .last_message,
+.contacts-list .flex-contact > div:last-child {
+    font-size: 10px;
+    color: #b8bbbe;
 }
 .left-col .selected {
     background-color: #e9ebeb;
@@ -257,6 +275,7 @@ ul {
     margin-left: 20px;
     display: none;
     color: #b8bbbe;
+    cursor: pointer;
 }
 /* dropdown-hover */
 .message:hover .flex-message-text .dropdown_arrow {

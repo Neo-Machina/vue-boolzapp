@@ -65,8 +65,19 @@
                     <!-- contacts -->
                     <ul class="contacts-list"> 
                         <li v-for="(contact, index) in contacts" @click="selectContatc(index)" class="avatar-item" :class="{ 'selected' : index === contactSelected }" v-if="contact.visible">
-                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                            <span>{{ contact.name }}</span>
+                            <div class="flex-contact">
+                                <div class="contact_info">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                    <div>
+                                        <div class="contact_name">{{ contact.name }}</div>
+                                        <div class="last_message">{{ contact.messages[contact.messages.length - 1].text }}</div>
+                                    </div>
+                                </div>
+    
+                                <div>
+                                   {{ contact.messages[contact.messages.length - 1].date }}
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +92,7 @@
 
                                 <div class="interlocutor-info">
                                     <div>{{ contacts[contactSelected].name }}</div>
-                                    <div>Ultimo accesso oggi alle</div>
+                                    <div>Ultimo accesso oggi alle {{ contacts[contactSelected].messages[contacts[contactSelected].messages.length - 1].date }} </div>
                                 </div>
                             </div>
 

@@ -9,7 +9,6 @@ var app = new Vue(
         el: '#root',
         data: {
             dropdownIndex: null,
-            menuOptionMessage: true,
             contactSelected: 0,
             newMessage: '',
             contactFilter: '',
@@ -146,7 +145,11 @@ var app = new Vue(
                 });
             },
             showMenuDropdown(index) {
-                this.dropdownIndex = index;
+                if(this.dropdownIndex === index) {
+                    this.dropdownIndex = null;
+                } else {
+                    this.dropdownIndex = index;
+                }
             },
             removeMessage(selectedMessageIndex) {
                 this.contacts[this.contactSelected].messages.splice(selectedMessageIndex, 1);

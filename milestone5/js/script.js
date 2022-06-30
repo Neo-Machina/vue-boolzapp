@@ -8,6 +8,8 @@ var app = new Vue(
     {
         el: '#root',
         data: {
+            dropdownIndex: null,
+            menuOptionMessage: true,
             contactSelected: 0,
             newMessage: '',
             contactFilter: '',
@@ -99,6 +101,11 @@ var app = new Vue(
             
         },
         methods: {
+            selectContatc(index) {
+                this.contactSelected = index;
+
+                this.dropdownIndex = null;
+            },
             addNewMessage() {
                 const newMessageObject = {
                     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
@@ -137,6 +144,12 @@ var app = new Vue(
                         element.visible = false;
                     }
                 });
+            },
+            showMenuDropdown(index) {
+                this.dropdownIndex = index;
+            },
+            removeMessage(selectedMessageIndex) {
+                this.contacts[this.contactSelected].messages.splice(selectedMessageIndex, 1);
             }
         }
     }

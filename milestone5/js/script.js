@@ -144,6 +144,20 @@ var app = new Vue(
                     }
                 });
             },
+            lastMessageText(index) {
+                if(this.contacts[index].messages.length === 0) {
+                    return '';
+                }
+
+                return this.contacts[index].messages[this.contacts[index].messages.length - 1].text;
+            },
+            lastMessageDate(index) {
+                if(this.contacts[index].messages.length === 0) {
+                    return '';
+                }
+
+                return this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+            },
             showMenuDropdown(index) {
                 if(this.dropdownIndex === index) {
                     this.dropdownIndex = null;
@@ -153,6 +167,8 @@ var app = new Vue(
             },
             removeMessage(selectedMessageIndex) {
                 this.contacts[this.contactSelected].messages.splice(selectedMessageIndex, 1);
+
+                this.dropdownIndex = null;
             }
         }
     }
